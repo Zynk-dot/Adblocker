@@ -1,0 +1,21 @@
+[
+    {
+      "id": 1001,
+      "priority": 1,
+      "action": { "type": "block" },
+      "condition": {
+        "urlFilter": "||ads.example.com^",
+        "resourceTypes": ["script", "image", "sub_frame"]
+      }
+    },
+    {
+      "id": 1002,
+      "priority": 1,
+      "action": { "type": "block" },
+      "condition": {
+        "urlFilter": "/trackers/",
+        "resourceTypes": ["xmlhttprequest", "script"]
+      }
+    }
+  ]
+  

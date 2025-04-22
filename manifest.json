@@ -1,36 +1,55 @@
 {
-    "manifest_version": 3,
-    "name": "Adblocker",
-    "version": "1.0",
-    "description": "Blocks ads, trackers, and malware.",
-    "permissions": [
-      "declarativeNetRequest",
-      "declarativeNetRequestFeedback",
-      "storage",
-      "scripting",
-      "tabs"
-    ],
-    "action": {
-      "default_popup": "popup/popup.html",
-      "default_icon": "icons/icon.png"
+  "manifest_version": 3,
+  "name": "Adblocker Pro",
+  "version": "3.0",
+  "description": "Adblocker with stealth, payload defense, threat intelligence, and advanced media ad blocking.",
+  "permissions": [
+    "declarativeNetRequest",
+    "declarativeNetRequestFeedback",
+    "storage",
+    "tabs",
+    "alarms",
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": "icons/icon.png"
+  },
+  "icons": {
+    "128": "icons/icon.png"
+  },
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "blocklist",
+        "enabled": true,
+        "path": "filters/dynamic-rules.json"
+      }
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": [
+        "content.js",
+        "stealth/stealth.js",
+        "core/payload-inspector.js",
+        "network/csp-injector.js",
+        "network/dns-entropy.js",
+        "network/tracking-neutralizer.js"
+      ],
+      "run_at": "document_idle"
     },
-    "background": {
-      "service_worker": "background.js"
-    },
-    "host_permissions": [
-      "<all_urls>"
-    ],
-    "declarative_net_request": {
-      "rule_resources": [
-        {
-          "id": "blocklist",
-          "enabled": true,
-          "path": "rules/rules.json"
-        }
-      ]
-    },
-    "icons": {
-      "128": "icons/catshield128.png"
+    {
+      "matches": ["*://*.youtube.com/*"],
+      "js": ["core/youtube-blocker.js"],
+      "run_at": "document_idle"
     }
-  }
-  
+  ]
+}

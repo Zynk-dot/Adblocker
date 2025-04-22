@@ -1,0 +1,15 @@
+{
+    "sources": {
+      "phishTank": "https://data.phishtank.com/data/online-valid.json",
+      "abuseIPDB": "https://api.abuseipdb.com/api/v2/blacklist",
+      "openPhish": "https://openphish.com/feed.txt"
+    },
+    "domains": [
+      "malicioussite.com",
+      "phishing-site.org",
+      "track.me",
+      "ads.xyz"
+    ],
+    "lastUpdated": "2025-04-22T00:00:00Z"
+  }
+  

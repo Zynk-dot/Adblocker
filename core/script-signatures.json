@@ -1,0 +1,23 @@
+[
+    {
+      "name": "CoinHive Miner",
+      "pattern": "navigator.hardwareConcurrency.*window.crypto.*Uint8Array.*Math.random",
+      "threat": "crypto-mining"
+    },
+    {
+      "name": "Fake CAPTCHA Redirect",
+      "pattern": "grecaptcha.execute\\(.*\\).*location\\.href",
+      "threat": "forced redirect"
+    },
+    {
+      "name": "JS Obfuscation Eval Chain",
+      "pattern": "eval\\(.*eval\\(.*eval\\(",
+      "threat": "multi-stage payload"
+    },
+    {
+      "name": "Fake Download Button",
+      "pattern": "onclick=.*(download|redirect).*\\.exe",
+      "threat": "malicious download"
+    }
+  ]
+  
