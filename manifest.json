@@ -1,8 +1,8 @@
 {
     "manifest_version": 3,
     "name": "Adblocker Pro",
-    "version": "0.1",
-    "description": "Privacy-focused adblocker with stealth, payload inspection, and threat intelligence.",
+    "version": "3.0",
+    "description": "Adblocker with stealth, payload defense, threat intelligence, and advanced media ad blocking.",
     "permissions": [
       "declarativeNetRequest",
       "declarativeNetRequestFeedback",
@@ -11,13 +11,18 @@
       "alarms",
       "scripting"
     ],
-    "host_permissions": ["<all_urls>"],
+    "host_permissions": [
+      "<all_urls>"
+    ],
     "background": {
       "service_worker": "background.js"
     },
     "action": {
       "default_popup": "popup/popup.html",
       "default_icon": "icons/icon.png"
+    },
+    "icons": {
+      "128": "icons/icon.png"
     },
     "declarative_net_request": {
       "rule_resources": [
@@ -27,9 +32,6 @@
           "path": "filters/dynamic-rules.json"
         }
       ]
-    },
-    "icons": {
-      "128": "icons/icon.png"
     },
     "content_scripts": [
       {
@@ -42,6 +44,11 @@
           "network/dns-entropy.js",
           "network/tracking-neutralizer.js"
         ],
+        "run_at": "document_idle"
+      },
+      {
+        "matches": ["*://*.youtube.com/*"],
+        "js": ["core/youtube-blocker.js"],
         "run_at": "document_idle"
       }
     ]

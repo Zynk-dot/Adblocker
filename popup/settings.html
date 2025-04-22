@@ -26,11 +26,42 @@
       cursor: pointer;
     }
     button:hover { background: #333; }
-    .status { font-size: 13px; color: #aaa; margin-top: 10px; }
+    textarea {
+      width: 100%;
+      background: #222;
+      color: #ccc;
+      border: 1px solid #444;
+      padding: 8px;
+      font-size: 13px;
+    }
+    .status {
+      font-size: 13px;
+      color: #aaa;
+      margin-top: 10px;
+    }
   </style>
 </head>
 <body>
   <h1>🛡️ Adblocker Pro</h1>
-  <p>Advanced module controls and system settings.</p>
+  <p>Configure which modules are active and safe domain overrides.</p>
 
-  <h2>
+  <h2>🧠 Core Modules</h2>
+  <label><input type="checkbox" id="stealthToggle"> Stealth Mode</label>
+  <label><input type="checkbox" id="payloadToggle"> Payload Inspector</label>
+  <label><input type="checkbox" id="heuristicsToggle"> Heuristics Engine</label>
+
+  <h2>🌐 Network Defenses</h2>
+  <label><input type="checkbox" id="cspToggle"> Content Security Policy</label>
+  <label><input type="checkbox" id="entropyToggle"> DNS Entropy Monitor</label>
+  <label><input type="checkbox" id="trackingToggle"> Tracking Neutralizer</label>
+
+  <h2>🔒 Safe Domains (No Injection)</h2>
+  <textarea id="safeDomains" rows="4" placeholder="one domain per line (e.g. mail.google.com)"></textarea>
+
+  <h2>🔁 Rules & Threat Feeds</h2>
+  <button id="updateFiltersBtn">Update Filters & Feeds</button>
+  <div class="status" id="lastUpdated">Last updated: loading...</div>
+
+  <script src="settings.js"></script>
+</body>
+</html>

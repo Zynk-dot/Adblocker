@@ -1,8 +1,5 @@
 (() => {
-    // Only inject on the extension's own UI pages (popup/settings/logs)
-    if (!location.href.startsWith(chrome.runtime.getURL(''))) {
-      return;
-    }
+    if (!location.href.startsWith(chrome.runtime.getURL(''))) return;
   
     const waitForHead = () =>
       new Promise(resolve => {
@@ -23,7 +20,6 @@
       if (!useCSP) return;
   
       const head = await waitForHead();
-  
       if (document.querySelector('meta[http-equiv="Content-Security-Policy"]')) return;
   
       const meta = document.createElement('meta');
@@ -32,7 +28,7 @@
         "default-src 'self'",
         "script-src 'self'",
         "style-src 'self' 'unsafe-inline'",
-        "img-src * data: blob:",
+        "img-src * data: blob: https://*.googleusercontent.com",
         "connect-src *",
         "object-src 'none'"
       ].join('; ');

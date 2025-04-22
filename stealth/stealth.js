@@ -12,8 +12,17 @@
       });
   
     const loadStealthModules = async () => {
-      const configUrl = chrome.runtime.getURL('stealth/stealth-config.json');
-      const config = await fetch(configUrl).then(r => r.json()).catch(() => ({}));
+      const [config, stored] = await Promise.all([
+        fetch(chrome.runtime.getURL('stealth/stealth-config.json')).then(r => r.json()).catch(() => ({})),
+        new Promise(res => chrome.storage.local.get(['safeDomains'], res))
+      ]);
+  
+      const currentHost = location.hostname;
+      const safeList = stored.safeDomains || [];
+      if (safeList.some(domain => currentHost.includes(domain))) {
+        console.log('[Stealth] Skipped on safe domain:', currentHost);
+        return;
+      }
   
       const modules = [
         { enabled: config.fingerprintSpoof, path: 'stealth/fingerprint-spoof.js' },
@@ -30,7 +39,6 @@
           const script = document.createElement('script');
           script.src = chrome.runtime.getURL(mod.path);
           script.type = 'module';
-          script.async = false;
           root.appendChild(script);
           console.log(`[Stealth] Loaded: ${mod.path}`);
         } catch (err) {

@@ -1,21 +1,83 @@
 [
-    {
-      "id": 1,
-      "priority": 1,
-      "action": { "type": "block" },
-      "condition": {
-        "urlFilter": "doubleclick.net",
-        "resourceTypes": ["script", "sub_frame"]
-      }
-    },
-    {
-      "id": 2,
-      "priority": 1,
-      "action": { "type": "block" },
-      "condition": {
-        "urlFilter": "googlesyndication.com",
-        "resourceTypes": ["script", "sub_frame"]
-      }
+  {
+    "id": 1,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "doubleclick.net",
+      "resourceTypes": ["script", "sub_frame"]
     }
-  ]
-  
+  },
+  {
+    "id": 2,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "googlesyndication.com",
+      "resourceTypes": ["script", "sub_frame"]
+    }
+  },
+  {
+    "id": 3,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "/ads/",
+      "resourceTypes": ["image", "script", "sub_frame"]
+    }
+  },
+  {
+    "id": 4,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "sentry.io",
+      "resourceTypes": ["script"]
+    }
+  },
+  {
+    "id": 5,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "newrelic.com",
+      "resourceTypes": ["script"]
+    }
+  },
+  {
+    "id": 20001,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "spclient.wg.spotify.com/ads",
+      "resourceTypes": ["xmlhttprequest"]
+    }
+  },
+  {
+    "id": 20002,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "audio-ads.spotifycdn.com",
+      "resourceTypes": ["media"]
+    }
+  },
+  {
+    "id": 20003,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "youtube.com/api/stats/ads",
+      "resourceTypes": ["xmlhttprequest"]
+    }
+  },
+  {
+    "id": 20004,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "googlevideo.com",
+      "resourceTypes": ["media"]
+    }
+  }
+]
