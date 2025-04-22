@@ -1,15 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Adblocker</title>
-  <link rel="stylesheet" href="../styles/popup.css">
+  <meta charset="UTF-8" />
+  <title>Adblocker Pro</title>
+  <link rel="stylesheet" href="popup.css" />
 </head>
 <body>
-  <h1>🐱🛡️ Adblocker</h1>
-  <label>
-    <input type="checkbox" id="toggle" checked />
-    Power: <span id="status">ON</span>
-  </label>
+  <div class="header">🛡️ Adblocker Pro</div>
+
+  <div class="status">
+    <div><strong>Blocked Requests:</strong> <span id="blocked-count">0</span></div>
+    <div><strong>Threats Detected:</strong> <span id="threats-count">0</span></div>
+  </div>
+
+  <div class="toggles">
+    <label><input type="checkbox" id="stealthToggle"> Stealth Mode</label>
+    <label><input type="checkbox" id="heuristicsToggle"> Heuristics</label>
+    <label><input type="checkbox" id="payloadToggle"> Payload Inspector</label>
+  </div>
+
+  <div class="actions">
+    <button id="openSettingsBtn">Advanced Settings</button>
+    <button id="updateFilters">Update Filters</button>
+    <button id="viewLogs">View Logs</button>
+  </div>
+
   <script src="popup.js"></script>
 </body>
 </html>
