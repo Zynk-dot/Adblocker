@@ -2,17 +2,19 @@
 
 folder structure
 ```
-Adblocker/
-├── manifest.json             
-├── background.js             
-├── popup/
-│   ├── popup.html            
-│   └── popup.js              
+Adblocker_CoreOnly/
+├── manifest.json                 ← Core extension config
+├── background.js                 ← Startup script (stable)
+├── popup/                        ← UI folder
+│   ├── popup.html                ← UI structure
+│   └── popup.js                  ← Toggle behavior (can evolve)
 ├── styles/
-│   └── popup.css             
+│   └── popup.css                 ← UI styling
 ├── icons/
-│   └── icon.png     
-├── README.html               
+│   └── catshield128.png          ← Placeholder icon (can swap image)
+├── README.html                   ← Step-by-step user guide
+└── rules/
+    └── rules.json                ← Your blocklist file (editable)
 ```
 
 this project is not done YET! hopefully it will be done soon! 

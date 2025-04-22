@@ -1,0 +1,36 @@
+{
+    "manifest_version": 3,
+    "name": "Adblocker",
+    "version": "1.0",
+    "description": "Blocks ads, trackers, and malware.",
+    "permissions": [
+      "declarativeNetRequest",
+      "declarativeNetRequestFeedback",
+      "storage",
+      "scripting",
+      "tabs"
+    ],
+    "action": {
+      "default_popup": "popup/popup.html",
+      "default_icon": "icons/icon.png"
+    },
+    "background": {
+      "service_worker": "background.js"
+    },
+    "host_permissions": [
+      "<all_urls>"
+    ],
+    "declarative_net_request": {
+      "rule_resources": [
+        {
+          "id": "blocklist",
+          "enabled": true,
+          "path": "rules/rules.json"
+        }
+      ]
+    },
+    "icons": {
+      "128": "icons/catshield128.png"
+    }
+  }
+  
